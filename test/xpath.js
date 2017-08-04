@@ -27,20 +27,20 @@ describe('getXpath', function () {
     it('param is empty', function () {
         expect(function () {
             getXpath();
-        }).to.throw('element不可为空');
+        }).to.throw('element cannot be empty');
         expect(function () {
             getXpath(null);
-        }).to.throw('element不可为空');
+        }).to.throw('element cannot be empty');
     });
 
     it('param is error', function () {
         expect(function () {
             getXpath($('html').get(0));
-        }).to.throw('element必须为body下面元素');
+        }).to.throw('element should be a descendent of body');
 
         expect(function () {
             getXpath(window);
-        }).to.throw('element必须为body下面元素');
+        }).to.throw('element should be a descendent of body');
     });
 
     it('param context', function () {
@@ -63,7 +63,7 @@ describe('getXpath', function () {
 
             expect(function () {
                 getXpath($('div'));
-            }).to.throw('element必须为单个节点');
+            }).to.throw('element should be a single node');
             expect($('div').length).to.equal(3);
         });
 
@@ -72,7 +72,7 @@ describe('getXpath', function () {
 
             expect(function () {
                 getXpath($('p'));
-            }).to.throw('element必须为单个节点');
+            }).to.throw('element should be a single node');
             expect($('p').length).to.equal(1);
         });
 
@@ -81,7 +81,7 @@ describe('getXpath', function () {
 
             expect(function () {
                 getXpath($('p').get(0));
-            }).to.not.throw('element必须为单个节点');
+            }).to.not.throw('element should be a single node');
             expect($('p').length).to.equal(1);
         });
     });
@@ -147,10 +147,10 @@ describe('parseXpath', function () {
     it('param is empty', function () {
         expect(function () {
             parseXpath();
-        }).to.throw('query不可为空');
+        }).to.throw('query cannot be empty');
         expect(function () {
             parseXpath(null);
-        }).to.throw('query不可为空');
+        }).to.throw('query cannot be empty');
     });
 
     it('param is error', function () {

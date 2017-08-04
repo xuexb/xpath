@@ -15,13 +15,13 @@
  */
 function getXpath(element, context) {
     if (!element) {
-        throw new TypeError('element不可为空');
+        throw new TypeError('element cannot be empty');
     }
     else if (element === window || element === document.documentElement) {
-        throw new TypeError('element必须为body下面元素');
+        throw new TypeError('element should be a descendent of body');
     }
     else if (typeof element.length === 'number') {
-        throw new TypeError('element必须为单个节点');
+        throw new TypeError('element should be a single node');
     }
 
     if (element.id !== '') {
@@ -74,7 +74,7 @@ function getXpath(element, context) {
  */
 function parseXpath(query, context) {
     if (!query) {
-        throw new TypeError('query不可为空');
+        throw new TypeError('query cannot be empty');
     }
 
     return document.evaluate(
