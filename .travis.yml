@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - node
+sudo: false
+branches:
+  only:
+    - master
+script:
+  - npm run test:cov
+after_script: 
+  - npm install coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
