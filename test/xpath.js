@@ -135,8 +135,18 @@ describe('getXpath', function () {
             '       <div></div>',
             '       <div class="child"></div>',
             '   </div>',
-            '</div>'
+            '</div>',
+            '<form>',
+            '   <input type="button" value="test">',
+            '   <input type="text">',
+            '</form>',
+            '<form>',
+            '   <input type="button" value="test">',
+            '   <input type="text">',
+            '</form>'
         ].join(''));
+        expect(getXpath($('form').get(0))).to.equal('/html/body/form[1]');
+        expect(getXpath($('form input').get(0))).to.equal('/html/body/form[1]/input[1]');
         expect(getXpath($('div').get(0))).to.equal('/html/body/div');
         expect(getXpath($('a').get(1))).to.equal('/html/body/a[2]');
         expect(getXpath($('.child').get(0))).to.equal('//*[@id="context"]/div[2]');

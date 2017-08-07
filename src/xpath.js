@@ -8,19 +8,20 @@
 /**
  * 获取元素xpath路径
  *
- * @param  {htmlElement} element 元素
- * @param  {htmlElement} [context=document.body] 父节点
+ * @param  {HTMLElement} element 元素
+ * @param  {HTMLElement} [context=document.body] 父节点
  *
  * @return {string}
  */
 function getXpath(element, context) {
+    // console.log(element, element.length);
     if (!element) {
         throw new TypeError('element cannot be empty');
     }
     else if (element === window || element === document.documentElement) {
         throw new TypeError('element should be a descendent of body');
     }
-    else if (typeof element.length === 'number') {
+    else if (element.nodeType !== 1) {
         throw new TypeError('element should be a single node');
     }
 
@@ -68,9 +69,9 @@ function getXpath(element, context) {
  * 解析xpath路径为dom元素
  *
  * @param  {string} query   xpath路径
- * @param  {htmlElement} [context=document.body] 父节点
+ * @param  {HTMLElement} [context=document.body] 父节点
  *
- * @return {htmlElement}
+ * @return {HTMLElement}
  */
 function parseXpath(query, context) {
     if (!query) {
