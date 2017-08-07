@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>xpath路径查看</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style type="text/css">
+        .highlight {
+            background-color: #09f;
+        }
+    </style>
+</head>
+<body>
+    <h1>请看控制台</h1>
+    <div class="demo">
+        <div class="demo2">
+            <a href="#"><img src="https://dummyimage.com/100x100" alt=""></a>
+            <p><img src="https://dummyimage.com/100x100" alt=""></p>
+            <ul>
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+                <li>04</li>
+                <li>05</li>
+                <li>06</li>
+                <li>07</li>
+                <li>08</li>
+                <li>09</li>
+                <li>10</li>
+            </ul>
+        </div>
+
+        <div id="demo3">
+            <h3>id</h3>
+            <ol>
+                <li>01</li>
+                <li>02</li>
+                <li>03</li>
+            </ol>
+        </div>
+
+        <div class="demo4">
+            <h3>a标签</h3>
+            <ul>
+                <li><a href="#">01</a></li>
+                <li><a href="#">02</a></li>
+                <li><a href="#">03</a></li>
+                <li><a href="#">04</a></li>
+                <li><a href="#">05</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>form</h3>
+    <form action="#" onsubmit="return false">
+        <ul>
+            <li>
+                <input type="text" placeholder="test">
+            </li>
+            <li>
+                <input type="button" value="测试">
+            </li>
+            <li>
+                <button>
+                    test
+                </button>
+            </li>
+            <li>
+                <input type="checkbox">
+            </li>
+            <li>
+                <select>
+                    <option>测试</option>
+                </select>
+            </li>
+        </ul>
+    </form>
+
+    <script src="./deps/zepto.js"></script>
+    <script src="./src/xpath.js"></script>
+    <script>
+        $('body').on('click', function (event) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            console.log(getXpath(event.target));
+            $('.highlight').removeClass('highlight');
+            $(parseXpath(getXpath(event.target))).addClass('highlight');
+        });
+    </script>
+</body>
+</html>
