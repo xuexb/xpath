@@ -9,10 +9,26 @@
         .highlight {
             background-color: #09f;
         }
+        #output {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 14px;
+        }
+        body {
+            padding-top: 30px;
+        }
     </style>
 </head>
 <body>
-    <h1>请看控制台</h1>
+    <div id="output">请点击页面元素</div>
+    <h1>xpath路径查看</h1>
     <div class="demo">
         <div class="demo2">
             <a href="#"><img src="https://dummyimage.com/100x100" alt=""></a>
@@ -77,6 +93,93 @@
         </ul>
     </form>
 
+    <div class="container">
+        <div class="left">
+            <div class="logina">
+                <a class="loginBtn" href="javascript:;">登录</a>
+                <p class="p1">如果你是注册银用户</p>
+                <p>点击登录按钮进入登录页面</p>
+            </div>
+            <div class="reg">
+                <p>通过注册，您将可查询该网站相关数据信息，并提供个性化，互动功能以及所选择的内部研究，您可以订阅。</p>
+                <p>点击按钮继续注册过程</p>
+                <p><a href="zhuce.html" target="_self">注册用户</a></p>
+            </div>
+        </div>
+        <div class="right">
+            <div class="loginfo">
+                <h2 class="color-origin">欢迎光临</h2>
+                <div class="about">
+                    <h3>Capital Market Division<p>关于资金资本市场部</p></h3>
+                    <p>teststest+H股上市公司）、中植企业集团有限公司、哈尔滨投资集团有限责任公司及沈阳安泰达商贸有限公司分别持股37.47%、32.99%、21.54%和8.01%。公司目前员工1700余人，分布于全国20余个主要城市。银监会对公司2011年监管评级（最新）为2C级。
+                    <br>
+                    2014年末，公司资产管理总规模7,227.93亿元，较年初增长48.05%；公司净资产98.05亿元，净资本87.13亿元；2014年实现收入55.31亿元。公司拥有数万名高端自然人客户及上千家机构客户。
+                    <br>
+                    公司主营业务覆盖房地产、证券、工商企业及基础设施领域，“多元化”交易模式包括股权投资、信托贷款、股权收益权、财产权管理等。经过20余年的发展，公司已成为公司治理完善、风险管控有效、业务创新积极、人员覆盖全国的大型金融企业。<a href="article.html" target="_self">[点击详情]</a></p>
+                </div>
+                <!-- 业务范围 -->
+                <div class="business">
+                    <div class="b_title">业务范围<span>Services</span></div>
+                    <div class="b_info">
+                        <ul>
+                            <li>
+                                <h4>私募机构服务</h4>
+                                <p><a href="article.html" target="_self">中融国际信托有限公司是经中国银监会批准设立的金融机构。</a></p>
+                            </li>
+                            <li>
+                                <h4>私募机构服务</h4>
+                                <p><a href="article.html" target="_self">中融国际信托有限公司是经中国银监会批准设立的金融机构。</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 新闻中心/资讯图书馆 -->
+                <div class="news">
+                    <div class="news_box">
+                        <div class="b_title">新闻中心<span>News Center</span></div>
+                        <dl class="news_dl">
+                            <dt>
+                                <a class="active" href="article.html" target="_self"><img src="images/news_img.jpg"></a>
+                                <a href="article.html" target="_self"><img src="images/news_img2.jpg"></a>
+                                <a href="article.html" target="_self"><img src="images/news_img3.jpg"></a>
+                            </dt>
+                            <dd class="first">
+                                <p><a href="article.html" target="_self">中融信托执行总裁汪</a><span class="time">07/23/2016</span></p>
+                                <p class="news_p">[今年以来，多家信托公司、银行下属经或家族信托业务...]</p>
+                            </dd>
+                            <dd>
+                                <p><a href="article.html" target="_self">中融信托执行总裁汪</a><span class="time">07/23/2016</span></p>
+                            </dd>
+                            <dd>
+                                <p><a href="article.html" target="_self">中融信托执行总裁汪</a><span class="time">07/23/2016</span></p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="news_box news_box2">
+                        <div class="b_title">资讯图书馆<span>Library</span></div>
+                        <dl>
+                            <dd><a href="article.html" target="_self">中融信托执行总裁汪中融信托执行总裁汪</a><span>1/2/2016</span></dd>
+                            <dd><a href="article.html" target="_self">中融信托执行总裁汪中融信托执行总裁汪</a><span>1/2/2016</span></dd>
+                            <dd><a href="article.html" target="_self">中融信托执行总裁汪中融信托执行总裁汪</a><span>1/2/2016</span></dd>
+                            <dd><a href="article.html" target="_self">中融信托执行总裁汪中融信托执行总裁汪</a><span>1/2/2016</span></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footnav">
+            <p><a href="#">使用条款</a></p>
+            <p><a href="#">法律法规</a></p>
+            <p><a href="#">隐私政策</a></p>
+            <p><a href="#">1</a></p>
+            <p><a href="#">2</a></p>
+        </div>
+        <div class="sec">@2016-3</div>
+    </div>
+
     <script src="./deps/zepto.js"></script>
     <script src="./src/xpath.js"></script>
     <script>
@@ -84,9 +187,12 @@
             event.stopPropagation();
             event.preventDefault();
 
-            console.log(getXpath(event.target));
+            var xpath = getXpath(event.target);
+            console.log(xpath);
             $('.highlight').removeClass('highlight');
-            $(parseXpath(getXpath(event.target))).addClass('highlight');
+            $(parseXpath(xpath)).addClass('highlight');
+
+            $('#output').text(xpath);
         });
     </script>
 </body>
