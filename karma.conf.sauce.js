@@ -8,8 +8,7 @@ const base = require('./karma.conf.base.js');
 const customLaunchers = {
     sl_android_6_0: {
         base: 'SauceLabs',
-        browserName: 'android',
-        version: '6.0'
+        browserName: 'android'
     },
     sl_firefox: {
         base: 'SauceLabs',
@@ -21,20 +20,24 @@ const customLaunchers = {
     },
     sl_mac_safari: {
         base: 'SauceLabs',
-        browserName: 'safari',
-        version: '10'
+        browserName: 'safari'
     },
     sl_ie_11: {
         base: 'SauceLabs',
         browserName: 'internet explorer',
-        platform: 'Windows 10',
-        version: '11'
+        platform: 'Windows 10'
     }
 };
 
+// 不支持本地运行
+if (!process.env.TRAVIS) {
+    console.error(`不支持本地运行, 请使用 \`npm run test\`!\n`);
+    process.exit(1);
+}
+
 module.exports = function(config) {
     const options = Object.assign(base(config), {
-        reporters: process.env.CI ? ['dots', 'saucelabs'] : ['progress', 'saucelabs'],
+        reporters: ['dots', 'saucelabs'],
         sauceLabs: {
             testName: 'xpath test case',
             recordScreenshots: false,
