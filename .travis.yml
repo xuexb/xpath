@@ -3,9 +3,6 @@ dist: precise
 node_js:
   - node
 sudo: false
-branches:
-  only:
-    - master
 script:
   - npm run test:cov
 after_script: 
