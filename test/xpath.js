@@ -166,11 +166,11 @@ describe('parseXpath', function () {
     it('param is error', function () {
         expect(function () {
             parseXpath([]);
-        }).to.throw(/INVALID_EXPRESSION_ERR/);
+        }).to.throw();
 
         expect(function () {
             parseXpath('fsdf@fdsfsd');
-        }).to.throw(/INVALID_EXPRESSION_ERR/);
+        }).to.throw();
     });
 
     it('node.id', function () {
