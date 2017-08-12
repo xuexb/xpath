@@ -6,6 +6,7 @@
   "scripts": {
     "check": "fecs check src/ test/ --reporter=baidu --rule",
     "test": "karma start --browsers ChromeHeadless karma.conf.js",
+    "test:sauce": "karma start --browsers Sauce --reporters progress,sauce karma.conf.js",
     "test:cov": "npm test -- --reporters progress,coverage",
     "test:watch": "npm test -- --auto-watch --no-single-run"
   },
@@ -29,6 +30,7 @@
     "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.3.0",
     "karma-phantomjs-launcher": "^1.0.4",
+    "karma-saucelabs-launcher": "^0.0.0",
     "mocha": "^3.2.0",
     "sinon": "^3.0.0",
     "sinon-chai": "^2.8.0"
