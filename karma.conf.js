@@ -75,12 +75,13 @@ module.exports = function(config) {
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         // Note: 如果要调试Karma，请设置为DEBUG
-        logLevel: config.LOG_ERROR,
+        logLevel: config.LOG_INFO,
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: [
-            'PhantomJS'
+            'PhantomJS',
+            'ChromeHeadless'
         ],
 
 
