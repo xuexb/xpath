@@ -31,29 +31,37 @@ const customLaunchers = {
 
 // 不支持本地运行
 if (!process.env.TRAVIS) {
-    console.error(`不支持本地运行, 请使用 \`npm run test\`!\n`);
+    console.error('不支持本地运行, 请使用 npm run test!');
     process.exit(1);
 }
 
-module.exports = function(config) {
+// 变量检查
+if (!process.env.SAUCE_USERNAME || !process.env.SAUCE_ACCESS_KEY) {
+    console.error('---------------');
+    console.error('Make sure the SAUCE_USERNAME and SAUCE_ACCESS_KEY environment variables are set.');
+    console.error('---------------');
+    process.exit(1);
+}
+
+module.exports = function (config) {
     const options = Object.assign(base(config), {
-        reporters: ['dots', 'saucelabs'],
+        reporters: ['progress', 'saucelabs'],
         sauceLabs: {
-            testName: 'xpath test case',
-            recordScreenshots: false,
-            startConnect: false,
-            connectOptions: {
+            'testName': 'xpath test case',
+            'recordVideo': false,
+            'recordScreenshots': false,
+            'startConnect': false,
+            'connectOptions': {
                 'no-ssl-bump-domains': 'all'
             },
-
-            public: 'public',
-
-            build: 'build-' + Date.now()
+            'public': 'public',
+            'build': process.env.CIRCLE_BUILD_NUM || process.env.SAUCE_BUILD_ID || 'build-' + Date.now(),
+            'tunnelIdentifier': process.env.TRAVIS_JOB_NUMBER
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
-        captureTimeout: 10000,
-        browserNoActivityTimeout: 10000,
+        captureTimeout: (1000 * 60) * 5,
+        browserNoActivityTimeout: (1000 * 60) * 5
     });
 
     config.set(options);
