@@ -44,12 +44,16 @@ module.exports = function(config) {
             startConnect: false,
             connectOptions: {
                 'no-ssl-bump-domains': 'all'
-            }
+            },
+
+            public: 'public',
+
+            build: 'build-' + Date.now()
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
-        captureTimeout: 300000,
-        browserNoActivityTimeout: 300000,
+        captureTimeout: 10000,
+        browserNoActivityTimeout: 10000,
     });
 
     config.set(options);
