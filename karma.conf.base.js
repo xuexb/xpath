@@ -58,7 +58,7 @@ module.exports = config => {
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         // Note: 如果要调试Karma，请设置为DEBUG
-        logLevel: config.LOG_INFO,
+        logLevel: config.LOG_DEBUG,
 
         coverageReporter: {
             // specify a common output directory
