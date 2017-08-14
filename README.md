@@ -5,6 +5,8 @@
 [![Test Coverage](https://img.shields.io/coveralls/xuexb/xpath/master.svg)](https://coveralls.io/r/xuexb/xpath?branch=master)
 [![DevDependencies](https://img.shields.io/david/dev/xuexb/xpath.svg?style=flat)](https://david-dm.org/xuexb/xpath)
 
+[![Saucelabs Build Status](https://saucelabs.com/browser-matrix/apijs.svg)](https://saucelabs.com/beta/builds/6668736dc1464329a8913d33385318c5)
+
 ## api
 
 ### getXpath
