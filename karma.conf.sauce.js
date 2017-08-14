@@ -34,12 +34,12 @@ const customLaunchers = {
         platform: 'Windows 8',
         version: '10'
     },
-    sl_ie_11: {
-        base: 'SauceLabs',
-        browserName: 'internet explorer',
-        platform: 'Windows 8.1',
-        version: '11'
-    },
+    // sl_ie_11: {
+    //     base: 'SauceLabs',
+    //     browserName: 'internet explorer',
+    //     platform: 'Windows 8.1',
+    //     version: '11'
+    // },
 };
 
 // 不支持本地运行
