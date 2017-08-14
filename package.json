@@ -5,7 +5,9 @@
   "main": "src/xpath.js",
   "scripts": {
     "check": "fecs check src/ test/ --reporter=baidu --rule",
-    "test": "karma start karma.conf.js",
+    "test": "karma start --browsers ChromeHeadless karma.conf.unit.js",
+    "test:sauce": "karma start karma.conf.sauce.js",
+    "test:phantom": "npm test -- --browsers PhantomJS",
     "test:cov": "npm test -- --reporters progress,coverage",
     "test:watch": "npm test -- --auto-watch --no-single-run"
   },
@@ -25,9 +27,11 @@
     "karma": "^1.5.0",
     "karma-chai": "^0.1.0",
     "karma-chai-sinon": "^0.1.5",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.3.0",
     "karma-phantomjs-launcher": "^1.0.4",
+    "karma-sauce-launcher": "^1.1.0",
     "mocha": "^3.2.0",
     "sinon": "^3.0.0",
     "sinon-chai": "^2.8.0"
