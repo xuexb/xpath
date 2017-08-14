@@ -6,34 +6,28 @@
 const base = require('./karma.conf.base.js');
 
 const customLaunchers = {
-    // sl_android_6_0: {
-    //     base: 'SauceLabs',
-    //     browserName: 'android'
-    // },
+    sl_android_6_0: {
+        base: 'SauceLabs',
+        browserName: 'android'
+    },
     // sl_firefox: {
     //     base: 'SauceLabs',
     //     browserName: 'firefox'
     // },
-    // sl_chrome: {
-    //     base: 'SauceLabs',
-    //     browserName: 'chrome',
-    // },
-    // sl_mac_safari: {
-    //     base: 'SauceLabs',
-    //     browserName: 'safari'
-    // },
-    // sl_ie_11: {
+    sl_chrome: {
+        base: 'SauceLabs',
+        browserName: 'chrome',
+    },
+    sl_mac_safari: {
+        base: 'SauceLabs',
+        browserName: 'safari'
+    },
+    // sl_ie_10: {
     //     base: 'SauceLabs',
     //     browserName: 'internet explorer',
-    //     platform: 'Windows 10'
-    // }
-
-    sl_ie_10: {
-        base: 'SauceLabs',
-        browserName: 'internet explorer',
-        platform: 'Windows 8',
-        version: '10'
-    },
+    //     platform: 'Windows 8',
+    //     version: '10'
+    // },
     // sl_ie_11: {
     //     base: 'SauceLabs',
     //     browserName: 'internet explorer',
