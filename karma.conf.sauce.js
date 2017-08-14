@@ -6,22 +6,37 @@
 const base = require('./karma.conf.base.js');
 
 const customLaunchers = {
-    sl_android_6_0: {
+    // Safari
+    sl_ios_safari: {
         base: 'SauceLabs',
-        browserName: 'android'
+        browserName: 'Safari'
     },
-    // sl_firefox: {
-    //     base: 'SauceLabs',
-    //     browserName: 'firefox'
-    // },
-    sl_chrome: {
+
+
+    // 安卓浏览器
+    sl_android_4_4: {
+        base: 'SauceLabs',
+        browserName: 'android',
+        version: '4.4'
+    },
+    sl_android_5: {
+        base: 'SauceLabs',
+        browserName: 'android',
+        version: '5'
+    },
+    sl_android_6: {
+        base: 'SauceLabs',
+        browserName: 'android',
+        version: '6'
+    },
+
+    // // chrome
+    sl_ios_chrome: {
         base: 'SauceLabs',
         browserName: 'chrome',
     },
-    sl_mac_safari: {
-        base: 'SauceLabs',
-        browserName: 'safari'
-    },
+
+
     // sl_ie_10: {
     //     base: 'SauceLabs',
     //     browserName: 'internet explorer',
