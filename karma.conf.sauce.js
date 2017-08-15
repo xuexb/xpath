@@ -67,7 +67,7 @@ if (!process.env.SAUCE_USERNAME || !process.env.SAUCE_ACCESS_KEY) {
 
 module.exports = function (config) {
     const options = Object.assign(base(config), {
-        reporters: ['progress', 'saucelabs'],
+        reporters: ['mocha', 'saucelabs'],
         sauceLabs: {
             'testName': 'xpath test case',
             'recordVideo': false,
