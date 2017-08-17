@@ -12,7 +12,6 @@ const customLaunchers = {
         browserName: 'Safari'
     },
 
-
     // 安卓浏览器
     sl_android_4_4: {
         base: 'SauceLabs',
@@ -30,25 +29,42 @@ const customLaunchers = {
         version: '6'
     },
 
-    // // chrome
+    // chrome
     sl_ios_chrome: {
         base: 'SauceLabs',
-        browserName: 'chrome',
+        browserName: 'chrome'
     },
 
+    sl_ie_8: {
+        base: 'SauceLabs',
+        browserName: 'internet explorer',
+        platform: 'Windows 7',
+        version: '8'
+    },
+    sl_ie_9: {
+        base: 'SauceLabs',
+        browserName: 'internet explorer',
+        platform: 'Windows 7',
+        version: '9'
+    },
+    sl_ie_10: {
+        base: 'SauceLabs',
+        browserName: 'internet explorer',
+        platform: 'Windows 8',
+        version: '10'
+    },
+    sl_ie_11: {
+        base: 'SauceLabs',
+        browserName: 'internet explorer',
+        platform: 'Windows 8.1',
+        version: '11'
+    },
 
-    // sl_ie_10: {
-    //     base: 'SauceLabs',
-    //     browserName: 'internet explorer',
-    //     platform: 'Windows 8',
-    //     version: '10'
-    // },
-    // sl_ie_11: {
-    //     base: 'SauceLabs',
-    //     browserName: 'internet explorer',
-    //     platform: 'Windows 8.1',
-    //     version: '11'
-    // },
+    sl_firefox: {
+        base: 'SauceLabs',
+        browserName: 'firefox',
+        platform: 'Windows 7'
+    }
 };
 
 // 不支持本地运行
