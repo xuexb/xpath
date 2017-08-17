@@ -14,7 +14,6 @@
  * @return {string}
  */
 function getXpath(element, context) {
-    // console.log(element, element.length);
     if (!element) {
         throw new TypeError('element cannot be empty');
     }
@@ -54,8 +53,8 @@ function getXpath(element, context) {
         else if (sibling.nodeType === 1 && sibling.tagName === element.tagName) {
             index += 1;
         }
-    });
 
+    });
 
     // 如果同级节点只有一个标签, 则去掉索引
     if (index === 1 && str) {
@@ -67,9 +66,12 @@ function getXpath(element, context) {
 
 /**
  * 解析xpath路径为dom元素
+ * 查找元素
  *
  * @param  {string} query   xpath路径
  * @param  {HTMLElement} [context=document.body] 父节点
+ * @param  {string} str    选择器
+ * @param  {HTMLElement} parent 父容器
  *
  * @return {HTMLElement}
  */
@@ -78,13 +80,63 @@ function parseXpath(query, context) {
         throw new TypeError('query cannot be empty');
     }
 
-    return document.evaluate(
-        query,
-        context || document.body,
-        null,
-        XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-        null
-    ).snapshotItem(0);
+    if (!context) {
+        context = document.body;
+        query = query.replace('/html/body', '');
+    }
+
+    query = query.replace(/\/\/\*\[@id\="(\w+?)"\]/g, '#$1');
+    query = query.replace(/\//g, '>');
+
+    var data = query.split(/\>/);
+    var node = context;
+    var selector = data.shift();
+    do {
+        if (selector) {
+            node = find(selector, node);
+        }
+
+        if (!node) {
+            break;
+        }
+
+    } while (selector = data.shift());
+
+    return node;
+}
+
+/**
+ * 查找元素
+ *
+ * @param  {string} str    选择器
+ * @param  {HTMLElement} parent 父容器
+ *
+ * @return {HTMLElement}
+ */
+function find(str, parent) {
+    if (str.substr(0, 1) === '#') {
+        return document.getElementById(str.substr(1));
+    }
+
+    var node = null;
+    var matched = str.match(/(\w+)(\[(\d+)\])?/);
+    var index = parseInt(matched[3], 10) || 1;
+    var nodes = parent.childNodes;
+    var match = 0;
+
+    for (var i = 0; i < nodes.length; i++) {
+        // 如果同标签
+        if (nodes[i].nodeType === 1 && nodes[i].tagName.toLowerCase() === matched[1]) {
+            match += 1;
+            if (index === match) {
+                node = nodes[i];
+                break;
+            }
+        }
+
+    }
+
+    return node;
 }
 
 /* eslint-enable no-unused-vars */

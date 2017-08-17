@@ -168,9 +168,8 @@ describe('parseXpath', function () {
             parseXpath([]);
         }).to.throw();
 
-        expect(function () {
-            parseXpath('fsdf@fdsfsd');
-        }).to.throw();
+        expect(parseXpath('fsdf@fdsfsd')).to.equal(null);
+        expect(parseXpath('div123')).to.equal(null);
     });
 
     it('node.id', function () {
