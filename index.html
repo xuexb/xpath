@@ -180,19 +180,24 @@
         <div class="sec">@2016-3</div>
     </div>
 
-    <script src="./deps/zepto.js"></script>
     <script src="./src/xpath.js"></script>
     <script>
-        $('body').on('click', function (event) {
+        document.body.addEventListener('click', function (event) {
+            var target = event.target || event.srcElement;
+
             event.stopPropagation();
             event.preventDefault();
 
-            var xpath = getXpath(event.target);
-            console.log(xpath);
-            $('.highlight').removeClass('highlight');
-            $(parseXpath(xpath)).addClass('highlight');
+            var xpath = getXpath(target);
+            var element = parseXpath(xpath);
+            console.log(xpath, element);
 
-            $('#output').text(xpath);
+            if (document.getElementsByClassName('highlight')[0]) {
+                document.getElementsByClassName('highlight')[0].className = '';
+            }
+            element.className = 'highlight';
+
+            document.getElementById('output').innerHTML = xpath;
         });
     </script>
 </body>
