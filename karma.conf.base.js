@@ -20,8 +20,8 @@ module.exports = config => {
 
         // list of files / patterns to load in the browser
         files: [
-            'deps/zepto.js',
             'src/xpath.js',
+            'node_modules/zepto/dist/zepto.js',
             'test/**/*.js'
         ],
 
