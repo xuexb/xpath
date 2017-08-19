@@ -80,15 +80,13 @@ function parseXpath(query, context) {
         throw new TypeError('query cannot be empty');
     }
 
+    // 如果没有父节点认为是body
     if (!context) {
         context = document.body;
         query = query.replace('/html/body', '');
     }
 
-    query = query.replace(/\/\/\*\[@id\="(\w+?)"\]/g, '#$1');
-    query = query.replace(/\//g, '>');
-
-    var data = query.split(/\>/);
+    var data = query.replace(/\/\/\*\[@id\="(\w+?)"\]/g, '#$1').split(/\//);
     var node = context;
     var selector = data.shift();
     do {
@@ -120,13 +118,14 @@ function find(str, parent) {
 
     var node = null;
     var matched = str.match(/(\w+)(\[(\d+)\])?/);
+    var tagName = matched[1];
     var index = parseInt(matched[3], 10) || 1;
     var nodes = parent.childNodes;
     var match = 0;
 
     for (var i = 0; i < nodes.length; i++) {
         // 如果同标签
-        if (nodes[i].nodeType === 1 && nodes[i].tagName.toLowerCase() === matched[1]) {
+        if (nodes[i].nodeType === 1 && nodes[i].tagName.toLowerCase() === tagName) {
             match += 1;
             if (index === match) {
                 node = nodes[i];
