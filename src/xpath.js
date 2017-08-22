@@ -80,7 +80,10 @@ function parseXpath(query, context) {
         throw new TypeError('query cannot be empty');
     }
     else if ('string' !== typeof query) {
-        throw new TypeError('query cannot be string');
+        throw new TypeError('query should be a string');
+    }
+    else if (context && context.nodeType !== 1) {
+        throw new TypeError('context should be a single node');
     }
 
     // 如果没有父节点认为是body

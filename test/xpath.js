@@ -166,14 +166,25 @@ describe('parseXpath', function () {
     it('param is error', function () {
         expect(function () {
             parseXpath([]);
-        }).to.throw('query cannot be string');
+        }).to.throw('query should be a string');
 
         expect(function () {
             parseXpath({});
-        }).to.throw('query cannot be string');
+        }).to.throw('query should be a string');
 
         expect(parseXpath('fsdf@fdsfsd')).to.equal(null);
         expect(parseXpath('div123')).to.equal(null);
+
+        // check context
+        expect(function () {
+            parseXpath('/html/body', '#id');
+        }).to.throw('context should be a single node');
+        expect(function () {
+            parseXpath('/html/body', $('body'));
+        }).to.throw('context should be a single node');
+        expect(function () {
+            parseXpath('/html/body', $('<div></div><div></div>').get());
+        }).to.throw('context should be a single node');
     });
 
     it('node.id', function () {
