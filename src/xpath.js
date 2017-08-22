@@ -79,6 +79,9 @@ function parseXpath(query, context) {
     if (!query) {
         throw new TypeError('query cannot be empty');
     }
+    else if ('string' !== typeof query) {
+        throw new TypeError('query cannot be string');
+    }
 
     // 如果没有父节点认为是body
     if (!context) {

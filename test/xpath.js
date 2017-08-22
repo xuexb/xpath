@@ -166,7 +166,11 @@ describe('parseXpath', function () {
     it('param is error', function () {
         expect(function () {
             parseXpath([]);
-        }).to.throw();
+        }).to.throw('query cannot be string');
+
+        expect(function () {
+            parseXpath({});
+        }).to.throw('query cannot be string');
 
         expect(parseXpath('fsdf@fdsfsd')).to.equal(null);
         expect(parseXpath('div123')).to.equal(null);
