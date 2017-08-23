@@ -94,8 +94,7 @@ module.exports = function (config) {
             },
             'public': 'public',
             'build': 'xpath-build-' + process.env.TRAVIS_BUILD_NUMBER,
-            'tunnelIdentifier': process.env.TRAVIS_JOB_NUMBER,
-            'tags': 'xpath'
+            'tunnelIdentifier': process.env.TRAVIS_JOB_NUMBER
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
