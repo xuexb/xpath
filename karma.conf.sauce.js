@@ -85,7 +85,7 @@ module.exports = function (config) {
     const options = Object.assign(base(config), {
         reporters: ['mocha', 'saucelabs'],
         sauceLabs: {
-            'testName': 'xpath test case',
+            'testName': 'xpath',
             'recordVideo': false,
             'recordScreenshots': false,
             'startConnect': false,
@@ -93,8 +93,9 @@ module.exports = function (config) {
                 'no-ssl-bump-domains': 'all'
             },
             'public': 'public',
-            'build': process.env.CIRCLE_BUILD_NUM || process.env.SAUCE_BUILD_ID || 'build-' + Date.now(),
-            'tunnelIdentifier': process.env.TRAVIS_JOB_NUMBER
+            'build': 'xpath-build-' + process.env.TRAVIS_BUILD_NUMBER,
+            'tunnelIdentifier': process.env.TRAVIS_JOB_NUMBER,
+            'tags': 'xpath'
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
