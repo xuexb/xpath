@@ -14,6 +14,7 @@
  * @return {string}
  */
 function getXpath(element, context) {
+    // 参数验证
     if (!element) {
         throw new TypeError('element cannot be empty');
     }
@@ -23,15 +24,17 @@ function getXpath(element, context) {
     else if (element.nodeType !== 1) {
         throw new TypeError('element should be a single node');
     }
+    else if (context && context.nodeType !== 1) {
+        throw new TypeError('context should be a single node');
+    }
 
+    // 特殊处理返回
     if (element.id !== '') {
         return '//*[@id="' + element.id + '"]';
     }
-
     else if (element === document.body) {
         return '/html/body';
     }
-
     else if (element === context) {
         return '';
     }

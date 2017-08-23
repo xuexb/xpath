@@ -41,6 +41,14 @@ describe('getXpath', function () {
         expect(function () {
             getXpath(window);
         }).to.throw('element should be a descendent of body');
+
+        expect(function () {
+            getXpath(document.body, []);
+        }).to.throw('context should be a single node');
+
+        expect(function () {
+            getXpath(document.body, $('<div></div><div></div>').get());
+        }).to.throw('context should be a single node');
     });
 
     it('param context', function () {
