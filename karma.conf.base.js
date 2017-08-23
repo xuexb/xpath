@@ -3,6 +3,18 @@
  * @author fe.xiaowu@gmail.com
  */
 
+console.log('TRAVIS_ALLOW_FAILURE', process.env.TRAVIS_ALLOW_FAILURE);
+console.log('TRAVIS_BRANCH', process.env.TRAVIS_BRANCH);
+console.log('TRAVIS_BUILD_DIR', process.env.TRAVIS_BUILD_DIR);
+console.log('TRAVIS_BUILD_ID', process.env.TRAVIS_BUILD_ID);
+console.log('TRAVIS_BUILD_NUMBER', process.env.TRAVIS_BUILD_NUMBER);
+console.log('TRAVIS_COMMIT', process.env.TRAVIS_COMMIT);
+console.log('TRAVIS_COMMIT_MESSAGE', process.env.TRAVIS_COMMIT_MESSAGE);
+console.log('TRAVIS_COMMIT_RANGE', process.env.TRAVIS_COMMIT_RANGE);
+console.log('TRAVIS_EVENT_TYPE', process.env.TRAVIS_EVENT_TYPE);
+console.log('TRAVIS_JOB_ID', process.env.TRAVIS_JOB_ID);
+console.log('TRAVIS_JOB_NUMBER', process.env.TRAVIS_JOB_NUMBER);
+
 module.exports = config => {
     return {
 
