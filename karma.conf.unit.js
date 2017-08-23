@@ -5,7 +5,7 @@
 
 const base = require('./karma.conf.base.js');
 
-module.exports = function(config) {
+module.exports = function (config) {
     const options = Object.assign(base(config), {
 
     });
