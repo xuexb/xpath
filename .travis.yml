@@ -5,7 +5,10 @@ addons:
 node_js:
   - node
 addons:
-  sauce_connect: true
+  sauce_connect:
+    username: "fe.xiaowu.xpath"
+  jwt:
+    secure: "jIS7w5/AO8/6of0aIqAlNtWg9wSjpW6fx4v7mghUSYaUHcqgIw7M9RS0q6z891S9nb+Pd0B1LxQv3gErzq7A50Eg2s6t5tRxid2Y4rpbu3Uv4kOyRpda3At9U/TGXJCqyl+H3xQDmtrU4/CLgiPBCjC5uOs+yQNuWOr8j5YQyQWLYtEHcjIZaLHAzqyI0cAsu+dJCWp40PxhY2zB/CY5MMhWVarjydG3DDhOTTIUzOPqQLYityKdsNMebP8J/Rwe/vJXNFsMG8AQx1Cnc90vRbQUwRauuJr+xJVG7RvRwEqFHdBeWCBjc7oI9xvrEdtR0rURzVifaeB8yEAVK3TxVXrCeboCXaImX46/KhJ55qRwWwAPYji654eZwBMHv4sXWQJBKIjf1r1BRM0o+p/ESNiIf8UIethWkvty1okDGBxB/Nzgip515Gzct/uvsJNsWcqRo66eEPvba28P2eeIzBbatSbMtAz9ghjyzvHY0mzzhH5yq9sviJ0n5paHhfTzflbFT99tG0mjMuHnPfBje989mmgczELX6T0ZOfEZeTSno1aRi3Docm/AlCT8HBRoGkudjZA9VpF3Y79F+n1eQCzij7+OE3P81/oSjrHstU/ORzcZwh7mvwRVMRRo75G3qiFMbEPizeZTtnZonP0tRa3mHJT8LxMO/Nfyh3hi3eU="
 sudo: false
 cache:
   directories:
