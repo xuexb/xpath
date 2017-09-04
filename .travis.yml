@@ -1,17 +1,18 @@
 language: node_js
 dist: trusty
-addons:
-  chrome: stable
 node_js:
   - node
 addons:
-  sauce_connect: true
+  chrome: stable
+  sauce_connect:
+    username: fe.xiaowu.xpath
+  jwt:
+    secure: "I3IVBxpHEtm9MyPMicCRLepAE68GDO+rBDTnp/0rqfAAZkHt1fU00ZwDZ5BG0YnkHaSoprdkJA/G3bgvs76oKBqmhK1j1CwQGqaQRIe6JCMatvnfOVWHo8leTUtZLVjE2h5Ol5axFwBTkbzB3DJroHa3w2ksLM2gHpreCoIevBuc3mJK9WIjWjNQnFNWRpsI5pNErs95WEYPLtYTW28wVpusn5wbKy9PmB5ZbSHw59ZvSTql+fG/dbeoVrVStY6LSNSWavntSyWSrD6apgwqxS2E7dM8sXdkj70RJROK7fO0pxgYnt94pJ03QvOOf/lhHTgQbNHdtz0Jioiv52DMUadca76GFuzQmpBlqKRWzUBXAW39SBRypvQv8rrvs/sgV0TCSbYpzDCOy+5OC5BtRqIQ2LhaaFFwxUS1e8BcBLjHykMQmJjX6zpHleePjeoif0PUMwxMF/g4PlVsZ5V3PR8gAfTGHNevnFMkQY73TzB3wESigmHd+4s4/TeM5N4hv2eIWYHmkYgcqfXrxavn6d6CDJ54tY6ijd3vhdZhdMBDf+HMBeDuKRU1tARU1NOzNfAMf8py6UfdN7DDseDmm63vjXXS9JO7ii9Da68vpao6e1WaIEMNvc1vHvbr28u8oZtYsfTklDNrTuBwIPxzOAnwzTuw5R+hATF2j0oMDRM="
 sudo: false
 cache:
   directories:
     - node_modules
 script:
-  - npm run test:cov
-  - npm run test:sauce
+  - npm run test:cov && npm run test:sauce
 after_script: 
   - npm install coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
