@@ -22,13 +22,90 @@
             font-size: 14px;
         }
         body {
+            margin: 0;
+            padding: 0;
             padding-top: 30px;
+        }
+
+        /*卡片样式*/
+        #results {
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        em {
+            color: #d00;
+            font-weight: normal;
+            font-style: normal;
+        }
+        a {
+            color: #00C;
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(23,23,23,.1);
+        }
+        .result {
+            width: auto;
+            margin: 10px 0;
+            padding: 10px 17px 15px;
+            border: 0 none;
+            font: 14px/24px Arial,Helvetica,sans-serif;
+            word-wrap: break-word;
+            word-break: break-word;
+            color: #555;
+            background-color: #fff;
+        }
+        .block {
+            display: block;
+        }
+        .title {
+            font: 19px/29px Arial,Helvetica,sans-serif;
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <div id="output">请点击页面元素</div>
     <h1>xpath路径查看</h1>
+
+    <div id="results">
+        <div class="result">
+            <a href="#" class="block"><h3 class="title"><em>美女</em>_测试xpath</h3></a>
+            <a href="#" class="block">
+                <p>
+                    我是测试的内容, 我是测试的内容我是测试的内容我是测试的内容我是测试的内容我是测试的内容我是测试的内容我是测试的内容我是测试的内容我是测试的内容
+                </p>
+            </a>
+            <p>
+                这是只是文本 <strong>加粗</strong> 啦啦啦~
+            </p>
+        </div>
+
+        <div class="result">
+            <a href="#" class="block"><h3 class="title"><em>美女</em>_测试xpath</h3></a>
+            <a href="#" class="block">
+                <ul>
+                    <li>
+                        我是1
+                    </li>
+                    <li>
+                        <p>
+                            我是2
+                        </p>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                3.11111
+                            </div>
+                            <div>
+                                3.22222
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </a>
+        </div>
+    </div>
+
     <div class="demo">
         <div class="demo2">
             <a href="#"><img src="https://dummyimage.com/100x100" alt=""></a>
@@ -182,6 +259,17 @@
 
     <script src="./src/xpath.js"></script>
     <script>
+        var setHighlight = function (element) {
+            if (document.getElementsByClassName('highlight')[0]) {
+                document.getElementsByClassName('highlight')[0].classList.remove('highlight');
+            }
+            element.classList.add('highlight');
+        };
+
+        var setText = function (text) {
+            document.getElementById('output').innerHTML = text;
+        };
+
         document.body.addEventListener('click', function (event) {
             var target = event.target || event.srcElement;
 
@@ -192,12 +280,25 @@
             var element = parseXpath(xpath);
             console.log(xpath, element);
 
-            if (document.getElementsByClassName('highlight')[0]) {
-                document.getElementsByClassName('highlight')[0].className = '';
-            }
-            element.className = 'highlight';
+            setHighlight(element);
+            setText(xpath);
+        });
 
-            document.getElementById('output').innerHTML = xpath;
+        // 卡片
+        [].slice.call(document.querySelectorAll('.result')).forEach(function (elem) {
+            elem.addEventListener('click', function (event) {
+                var target = event.target || event.srcElement;
+
+                event.stopPropagation();
+                event.preventDefault();
+
+                var xpath = getXpath(target, elem) || '/';
+                var element = parseXpath(xpath, elem);
+                console.log(xpath, element);
+
+                setHighlight(element);
+                setText(xpath);
+            });
         });
     </script>
 </body>
