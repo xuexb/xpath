@@ -75,12 +75,12 @@ if (!process.env.TRAVIS) {
 }
 
 // 变量检查
-if (!process.env.BROWSER_STACK_USERNAME || !process.env.BROWSER_STACK_ACCESS_KEY) {
-    console.error('---------------');
-    console.error('Make sure the BROWSER_STACK_USERNAME and BROWSER_STACK_ACCESS_KEY environment variables are set.');
-    console.error('---------------');
-    process.exit(1);
-}
+// if (!process.env.BROWSER_STACK_USERNAME || !process.env.BROWSER_STACK_ACCESS_KEY) {
+//     console.error('---------------');
+//     console.error('Make sure the BROWSER_STACK_USERNAME and BROWSER_STACK_ACCESS_KEY environment variables are set.');
+//     console.error('---------------');
+//     process.exit(1);
+// }
 
 module.exports = function (config) {
     const options = Object.assign(base(config), {
