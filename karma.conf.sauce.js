@@ -14,10 +14,12 @@ const customLaunchers = {
     //     os_version: null
     // },
 
-    test_android: {
-        "os": "android",
-        "os_version": "4.0"
+    test_ios: {
+        "os": "ios",
+        "os_version": "8.3",
+        "device": "iPhone 6 Plus"
     },
+
 
     // 安卓浏览器
     // sl_android_4_4: {
@@ -90,7 +92,8 @@ if (!process.env.TRAVIS) {
 
 module.exports = function (config) {
     const options = Object.assign(base(config), {
-        reporters: ['mocha'],
+        // reporters: ['mocha', 'BrowserStack'],
+        reporters: ['dots', 'BrowserStack'],
         browserStack: {
             name: 'xpath-name',
             video: false,
