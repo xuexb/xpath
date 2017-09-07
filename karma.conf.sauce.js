@@ -91,9 +91,9 @@ if (!process.env.BROWSER_STACK_USERNAME || !process.env.BROWSER_STACK_ACCESS_KEY
     process.exit(1);
 }
 
-var project = 'xpath' + (process.env.TRAVIS_PULL_REQUEST === 'true' ? '-pr' : '');
+var project = 'xpath' + (process.env.TRAVIS_PULL_REQUEST !== 'false' ? '-pr' : '');
 
-console.log('buld project => ' + project, process.env.TRAVIS_PULL_REQUEST, typeof process.env.TRAVIS_PULL_REQUEST);
+console.log('BrowserStack build project => ' + project);
 
 module.exports = function (config) {
     const options = Object.assign(base(config), {
@@ -102,7 +102,6 @@ module.exports = function (config) {
         browserStack: {
             name: 'xpath',
             video: false,
-            // startTunnel: false,
             project: project
         },
         customLaunchers: customLaunchers,
