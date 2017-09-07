@@ -91,6 +91,10 @@ if (!process.env.BROWSER_STACK_USERNAME || !process.env.BROWSER_STACK_ACCESS_KEY
     process.exit(1);
 }
 
+var project = 'xpath' + (process.env.TRAVIS_PULL_REQUEST === 'true' ? '-pr' : '');
+
+console.log('buld project => ' + project);
+
 module.exports = function (config) {
     const options = Object.assign(base(config), {
         // reporters: ['mocha', 'BrowserStack'],
@@ -98,10 +102,7 @@ module.exports = function (config) {
         browserStack: {
             name: 'xpath',
             video: false,
-            // startTunnel: false,
-            project: 'xpath' + (process.env.TRAVIS_PULL_REQUEST === 'true' ? '-pr' : ''),
-            build: 'xpath-build-' + process.env.TRAVIS_BUILD_NUMBER,
-            tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER
+            project: project
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
