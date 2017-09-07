@@ -10,14 +10,14 @@ addons:
       secure: "J/w5BzoliBGi0g+FsHBmn+aXYk1Q1YOXIECVrKt0ZJGusdN4GNaAS1oAG3Jc53BHa2CsCpCLtk06q21OXNPWADEwYmmbffNlJeQwYniJp4yHSanRg42UiPWhZ/7cWZGHdQGURHv8Np7B4n0wxThGJvk2gZiGwCKbXVeeGXK93NDaqamjKPqBojmeZQz05IvVC9H0xqwaePGyiHp+KASqZfEi2wIHiHLI64/fcJ+KcVVHA/+CmIGHytASOk9KPco+hTbnL/cgMv+HSu9ghP6TSsfXp5FTeLRplOjQ5Sljqstp6mRtRBXxbE1Ajy+H297qYixnfyVo9BC3bZFSkS3+nJAdImIB7HSKxmjGkBmhIdBBBym8/APSLPvalGaPTZjVqEbxcpEKkx4jQVXEPhefxAmRFrEXwS6VATScRlRNoloUrpXQV7sQ8GZWhVjUCYXf6CLcRCOagEL6uPZ3gW99Dpk5fhzGpcc01vR+Aq8g7xvUUnI4kKgknAUgDlviXOqYGORQPqs2WUCURFBrkyfKWUsIm7GRo2Wxif4S+t5sJJT3J/Qu96IB62ArEZZ0KhfTkHDqPp8+LbVGlklHtXtYYU0kpROO4b7JfzJNOBtGSL2p6ROyYBdjaZztvgW1QO/LKGxAMvXfWyERyahwnEclPULz23LV0FFM9nSU9tsJeT0="
 env:
   global:
-    BROWSER_STACK_USERNAME: xuexb1
     BROWSER_STACK_ACCESS_KEY:
       secure: "qYrqnuC/Ytf6mF6ODWMvPjj8gSzjv7UCHESyanc+pFfnBUg2aD0uGtsyyke59/UNuEhbnN6oS73l/74tdboo8t4ix9FYvMWB/Z4pxiCnMAq4xeLLSSj+kFSOhn3G26zOesurw1Dz2IPfFHyaO8dnIBr6JO9fFeODobiIZ2mtu1UP9ZUHxwqjTbrgdO9x6rWN7xj7YV4x8Bwz5C/D69SuL2JP5KtxSQMQGx21TnsF6lOARd+p2Hba/lvOqvCwEkaHUalxXCgINeo5c6+9HyK92TH4nZtw+4RTAA5S14OG67naaLqqYbEwkkBN97tuoLU5JGUUhh3Acz45Xu5H+GllNIHf5d2sYi8GEh+VJU2WLIf5ps6LjFY7tHKrwqcrNbWDKj5DOmaUbXyvc3HSmLEAGmu/ClOZxNnYcs6c5b/caqlLaJrESlffq8iNiFvVKdEpCCgqXRU4MgXZmU0Wyk9wAre9rkOn3fnKhhdQ1U2FEU8P5GzGpMOcStBbXkcu5RRAfwgD2gOrg5G4FCoFJvQaLXzosG2WhYFZEKpYLqsaE7h2Ua+kc2KmmYrbLEqRrC4RnZqF1Abe97023xcPCoxpfC0T3uUNvvE7nJ60+ze+oiicx4Te8fXDMIwOLZzqZ1t0neSXEMhTVrh74Kb+/H9KvJEwL0saQr0QXPB5BG1e5bM="
+    BROWSER_STACK_USERNAME: xuexb1
 sudo: false
 cache:
   directories:
-    - node_modules
+    node_modules
 script:
-  - npm run test:cov && npm run test:sauce
+  npm run test:cov && npm run test:sauce
 after_script: 
-  - npm install coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+  npm install coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
