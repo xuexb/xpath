@@ -14,10 +14,11 @@ const customLaunchers = {
     //     os_version: null
     // },
 
-    test_ios: {
-        "os": "ios",
-        "os_version": "8.3",
-        "device": "iPhone 6 Plus"
+    bs_iphone5: {
+        base: 'BrowserStack',
+        device: 'iPhone 5',
+        os: 'ios',
+        os_version: '6.0'
     },
 
 
