@@ -16,6 +16,6 @@ sudo: false
 cache:
   directories: node_modules
 script: 
-  - npm run test:cov
+  # - npm run test:cov
   - npm run test:sauce
 after_script: npm install coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
