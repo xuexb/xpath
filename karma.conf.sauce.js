@@ -84,7 +84,7 @@ if (!process.env.TRAVIS) {
 
 module.exports = function (config) {
     const options = Object.assign(base(config), {
-        reporters: ['mocha', 'browserStack'],
+        reporters: ['mocha'],
         browserStack: {
             name: 'xpath',
             video: false,
