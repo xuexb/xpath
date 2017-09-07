@@ -93,7 +93,7 @@ if (!process.env.BROWSER_STACK_USERNAME || !process.env.BROWSER_STACK_ACCESS_KEY
 
 var project = 'xpath' + (process.env.TRAVIS_PULL_REQUEST === 'true' ? '-pr' : '');
 
-console.log('buld project => ' + project, process.env.TRAVIS_PULL_REQUEST);
+console.log('buld project => ' + project, process.env.TRAVIS_PULL_REQUEST, typeof process.env.TRAVIS_PULL_REQUEST);
 
 module.exports = function (config) {
     const options = Object.assign(base(config), {
