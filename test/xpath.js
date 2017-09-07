@@ -25,8 +25,6 @@ afterEach(function () {
 
 describe('getXpath', function () {
     it('param is empty', function () {
-        expect(1).to.equal(0);
-
         expect(function () {
             getXpath();
         }).to.throw('element cannot be empty');
