@@ -98,7 +98,7 @@ module.exports = function (config) {
         browserStack: {
             name: 'xpath-name',
             video: false,
-            startTunnel: false,
+            // startTunnel: false,
             project: 'xpath',
             build: 'xpath-build-' + process.env.TRAVIS_BUILD_NUMBER,
             tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER
