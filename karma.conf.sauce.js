@@ -11,7 +11,7 @@ const customLaunchers = {
         base: 'BrowserStack',
         browser: 'safari',
         os: 'ios',
-        os_version: '10'
+        os_version: null
     },
 
     // 安卓浏览器
