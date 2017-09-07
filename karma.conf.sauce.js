@@ -99,7 +99,7 @@ module.exports = function (config) {
             name: 'xpath',
             video: false,
             // startTunnel: false,
-            project: 'xpath' + (process.env.TRAVIS_PULL_REQUEST ? '-pr' : ''),
+            project: 'xpath' + (process.env.TRAVIS_PULL_REQUEST === 'true' ? '-pr' : ''),
             build: 'xpath-build-' + process.env.TRAVIS_BUILD_NUMBER,
             tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER
         },
