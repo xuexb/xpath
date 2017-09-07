@@ -74,6 +74,12 @@ if (!process.env.TRAVIS) {
     process.exit(1);
 }
 
+console.log(process.env.BROWSER_STACK_USERNAME);
+console.log(process.env.BROWSER_STACK_ACCESS_KEY);
+console.log(process.env.username);
+console.log(process.env.access_key);
+
+
 // 变量检查
 if (!process.env.BROWSER_STACK_USERNAME || !process.env.BROWSER_STACK_ACCESS_KEY) {
     console.error('---------------');
