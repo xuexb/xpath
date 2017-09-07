@@ -10,7 +10,8 @@ const customLaunchers = {
     sl_ios_safari: {
         base: 'BrowserStack',
         browser: 'safari',
-        os: 'ios'
+        os: 'ios',
+        os_version: '10'
     },
 
     // 安卓浏览器
