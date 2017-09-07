@@ -86,9 +86,9 @@ module.exports = function (config) {
     const options = Object.assign(base(config), {
         reporters: ['mocha'],
         browserStack: {
-            name: 'xpath',
+            name: 'xpath-name',
             video: false,
-            startTunnel: false,
+            // startTunnel: false,
             project: 'xpath',
             build: 'xpath-build-' + process.env.TRAVIS_BUILD_NUMBER,
             tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER
