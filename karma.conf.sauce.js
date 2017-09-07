@@ -7,11 +7,16 @@ const base = require('./karma.conf.base.js');
 
 const customLaunchers = {
     // Safari
-    sl_ios_safari: {
-        base: 'BrowserStack',
-        browser: 'safari',
-        os: 'ios',
-        os_version: null
+    // sl_ios_safari: {
+    //     base: 'BrowserStack',
+    //     browser: 'safari',
+    //     os: 'ios',
+    //     os_version: null
+    // },
+
+    test_android: {
+        "os": "android",
+        "os_version": "4.0"
     },
 
     // 安卓浏览器
