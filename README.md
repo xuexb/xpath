@@ -1,4 +1,7 @@
-# [xpath路径查看工具](//xuexb.github.io/xpath/index.html)
+# [xpath路径工具](//xuexb.github.io/xpath/index.html)
+
+- 生成元素对应的xpath路径
+- 根据xpath路径获取对应的元素
 
 [![code style fecs](https://img.shields.io/badge/code%20style-fecs-brightgreen.svg)](https://github.com/ecomfe/fecs)
 [![Build Status](https://img.shields.io/travis/xuexb/xpath/master.svg)](https://travis-ci.org/xuexb/xpath)
@@ -34,3 +37,7 @@ function getXpath(element, context) {}
  */
 function parseXpath(query, context) {}
 ```
+
+## License
+
+[Apache 2.0](./LICENSE)
